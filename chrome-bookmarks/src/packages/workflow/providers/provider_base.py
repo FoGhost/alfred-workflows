@@ -139,7 +139,7 @@ class ProviderBase(object):
                     url = bookmark['url']
 
                     name_ratio = matcher.ratio(name)
-                    url_ratio = matcher.ratio(decode_url(url))
+                    url_ratio = matcher.ratio(urllib2.unquote(url))
 
                     matched = name_ratio >= _MINIMUM_RATIO or url_ratio >= _MINIMUM_RATIO
 
